@@ -1,0 +1,27 @@
+#!/bin/bash -e
+
+kernels=()
+all=0
+
+while read -r line; do
+    if [[ ${line} != */vmlinuz ]]; then
+        # triggers when it's a change to /usr/lib/dracut/* or systemd
+        all=1
+        continue
+    fi
+
+    if ! read -r pkgbase > /dev/null 2>&1 < "${line%/vmlinuz}/pkgbase"; then
+        continue
+    fi
+
+    kernels+=( "${pkgbase}" )
+done
+
+args=( -k )
+
+
+if ! (( all )) && (( ${#kernels[@]} )); then
+    args+=( "${kernels[@]}" )
+fi
+
+rebuild-initramfs "${args[@]}"
