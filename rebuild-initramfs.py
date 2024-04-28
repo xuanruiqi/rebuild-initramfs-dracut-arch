@@ -189,6 +189,7 @@ if __name__ == "__main__":
     key = ""
     cert = ""
     build_fallback = False
+    yes = False
 
     try:
         with open(CONFIG_PATH) as f:
@@ -213,6 +214,7 @@ if __name__ == "__main__":
     if args.cert:
         cert = args.cert
 
+    yes = args.yes or args.hook
     build_fallback = args.build_fallback or build_fallback if not args.no_fallback else False
     pr = ColorPrinter(use_color=not args.no_colors)
-    rebuild_all(pr, args.kernels, args.yes, verbosity, args.hook, build_fallback, key, cert)
+    rebuild_all(pr, args.kernels, yes, verbosity, args.hook, build_fallback, key, cert)
