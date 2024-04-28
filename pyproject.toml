@@ -12,7 +12,7 @@ authors = [
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
-    "Operating System :: POSIX :: Unix",
+    "Operating System :: POSIX :: Linux",
     "Topic :: Utilities",
     "Topic :: System :: Systems Administration",
     "License :: OSI Approved :: MIT License",
