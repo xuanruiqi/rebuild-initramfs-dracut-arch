@@ -197,7 +197,6 @@ if __name__ == "__main__":
             verbosity = 2 if config.get("verbose", False) else 1
             key = config.get("key_path", "")
             cert = config.get("cert_path", "")
-            use_color = config.get("use_color", True)
             build_fallback = config.get("build_fallback", False)
     except FileNotFoundError:
         pass
