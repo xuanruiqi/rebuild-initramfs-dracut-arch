@@ -7,7 +7,6 @@ from pyalpm import Handle
 import yaml
 
 CONFIG_PATH = "/etc/rebuild-initramfs.yaml"
-use_color = True
 
 class ColorPrinter(object):
     def __init__(self, use_color=True):
