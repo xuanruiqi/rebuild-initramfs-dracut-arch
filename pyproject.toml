@@ -1,0 +1,22 @@
+[project]
+name = "rebuild-initramfs-dracut-arch"
+version = "2.0.0"
+description = "A tool to rebuild initramfs images for Arch Linux using Dracut"
+dependencies = [
+    "pyalpm",
+    "termcolor",
+    "pyyaml",
+]
+authors = [
+    {name = "Xuanrui Qi", email = "me@xuanruiqi.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Operating System :: POSIX :: Unix",
+    "Topic :: Utilities",
+    "Topic :: System :: Systems Administration",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.scripts]
+rebuild-initramfs = "rebuild_initramfs:main"
