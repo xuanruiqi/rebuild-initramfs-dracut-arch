@@ -153,7 +153,7 @@ def rebuild_all(pr: ColorPrinter,
     else:
         try:
             hdl = Handle(".", "/var/lib/pacman")
-        except e:
+        except Exception as e:
             print_err(pr.err("Encountered error when reading package database. Possible pacman database corruption."))
             sys.exit(1)
         db = hdl.get_localdb()
