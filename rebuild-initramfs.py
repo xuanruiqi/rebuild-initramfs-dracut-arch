@@ -170,21 +170,22 @@ def rebuild_all(pr: ColorPrinter,
     for (base, ver) in work_list:
         rebuild_for_base(base, ver, pr, sudo=not is_root, yes=yes, verbosity=verbosity, build_fallback=build_fallback, sign=sign, sb_key=sb_key, sb_cert=sb_cert)
 
-parser = argparse.ArgumentParser(description="Rebuild some (or all) initramfs images using Dracut.")
-parser.add_argument("-y", "--yes", action="store_true", help="Say \"yes\" to all questions")
-parser.add_argument("-v", "--verbose", action="store_true", help="Be more verbose")
-parser.add_argument("-q", "--quiet", action="store_true", help="Be quiet. This is obviously mutually exclusive with '-v'")
-parser.add_argument("-k", "--hook", action="store_true", help="""
+
+def main():
+    parser = argparse.ArgumentParser(description="Rebuild some (or all) initramfs images using Dracut.")
+    parser.add_argument("-y", "--yes", action="store_true", help="Say \"yes\" to all questions")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Be more verbose")
+    parser.add_argument("-q", "--quiet", action="store_true", help="Be quiet. This is obviously mutually exclusive with '-v'")
+    parser.add_argument("-k", "--hook", action="store_true", help="""
 Enable hook (i.e., non-interactive) mode. This will suppress some warnings and also implies '-y'. DO NOT USE if you intend
 to run this program in interactive mode!""")
-parser.add_argument("--key", metavar="KEY_FILE", help="Machine Owner Key (MOK) used to sign kernel image for Secure Boot")
-parser.add_argument("--cert", metavar="CERT_FILE", help="MOK certificate used to sign kernel image for Secure Boot")
-parser.add_argument("--no-colors", action="store_true", help="Don't use colors")
-parser.add_argument("--build-fallback", action="store_true", help="Build fallback initramfs images")
-parser.add_argument("--no-fallback", action="store_true", help="Don't build fallback initramfs images")
-parser.add_argument("kernels", nargs="*", metavar="kernel package names")
+    parser.add_argument("--key", metavar="KEY_FILE", help="Machine Owner Key (MOK) used to sign kernel image for Secure Boot")
+    parser.add_argument("--cert", metavar="CERT_FILE", help="MOK certificate used to sign kernel image for Secure Boot")
+    parser.add_argument("--no-colors", action="store_true", help="Don't use colors")
+    parser.add_argument("--build-fallback", action="store_true", help="Build fallback initramfs images")
+    parser.add_argument("--no-fallback", action="store_true", help="Don't build fallback initramfs images")
+    parser.add_argument("kernels", nargs="*", metavar="kernel package names")
 
-if __name__ == "__main__":
     verbosity = 1
     key = ""
     cert = ""
@@ -217,3 +218,6 @@ if __name__ == "__main__":
     build_fallback = args.build_fallback or build_fallback if not args.no_fallback else False
     pr = ColorPrinter(use_color=not args.no_colors)
     rebuild_all(pr, args.kernels, yes, verbosity, args.hook, build_fallback, key, cert)
+
+if __name__ == "__main__":
+    main()
