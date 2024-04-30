@@ -195,10 +195,11 @@ to run this program in interactive mode!""")
     try:
         with open(CONFIG_PATH) as f:
             config = yaml.safe_load(f)
-            verbosity = 2 if config.get("verbose", False) else 1
-            key = config.get("key_path", "")
-            cert = config.get("cert_path", "")
-            build_fallback = config.get("build_fallback", False)
+            if config:
+                verbosity = 2 if config.get("verbose", False) else 1
+                key = config.get("key_path", "")
+                cert = config.get("cert_path", "")
+                build_fallback = config.get("build_fallback", False)
     except FileNotFoundError:
         pass
 
