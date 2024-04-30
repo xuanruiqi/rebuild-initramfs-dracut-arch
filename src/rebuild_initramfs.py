@@ -2,7 +2,6 @@
 import os, sys
 import subprocess
 import argparse
-from numpy import isin
 from termcolor import colored
 from pyalpm import Handle
 import yaml
