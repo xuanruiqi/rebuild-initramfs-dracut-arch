@@ -44,6 +44,8 @@ must also be given.
 * `--no-colors`: do not use colors in output. Useful if your terminal does not support colors.
 * `--build-fallback`: build fallback initramfs images.
 * `--no-fallback`: do not build fallback initramfs images. This takes precedence over `--build-fallback`.
+* `--dry`: do a dry run. Instead of executing the commands, `rebuild-initramfs` will print all commands that will be executed. This is
+useful for debugging, and perhaps for some types of scripting.
 * `-h`, `--help`: print help message.
 
 ## CONFIGURATION

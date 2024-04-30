@@ -67,7 +67,7 @@ class Builder(object):
         if not self.dry:
             subprocess.run(cmd)
         else:
-            print(info(" ".join(cmd), self.use_color))
+            print(" ".join(cmd))
 
     def detect_kernels(self) -> list[str]:
         base = "/usr/lib/modules"
