@@ -116,6 +116,7 @@ def get_ver(files) -> str:
     for (path, _, _) in files:
         if path.startswith("usr/lib/modules/") and path != "usr/lib/modules/":
             return path.rsplit("/")[-2]
+    return ""
 
 def rebuild_all(pr: ColorPrinter,
                 rebuild_for: list[str]=[],
