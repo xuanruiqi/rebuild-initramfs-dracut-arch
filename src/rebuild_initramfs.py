@@ -14,7 +14,7 @@ class ColorPrinter(object):
 
     def color(self, s: str, color: str) -> str:
         if self.use_color:
-            return colored(s, color)
+            return colored(s, color) # type: ignore
         else:
             return s
     
