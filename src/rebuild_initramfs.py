@@ -149,7 +149,7 @@ def rebuild_all(pr: ColorPrinter,
                     pkg_name = f.read().strip()
                     work_list.append((pkg_name, d))
             except FileNotFoundError:
-                print_err(pr.warn("{} is detected, but it is not an installed kernel!".format(pkg_name)))            
+                print_err(pr.warn("{} is detected, but it is not an installed kernel!".format(d)))            
     else:
         try:
             hdl = Handle(".", "/var/lib/pacman")
