@@ -1,8 +1,11 @@
+% REBUILD-INITRAMFS(1)
+% Xuanrui Qi
+% 23 December 2024
+## NAME
 rebuild-initramfs(1) -- command-line utility to rebuild multiple kernels at once on Arch-based systems
-======================================================================================================
 
 ## SYNOPSIS
-    rebuild-initramfs [OPTIONS] [<kernel package names>]
+**rebuild-initramfs** [OPTIONS] [<kernel package names>]
 
 ## DESCRIPTION
 **rebuild-initramfs** is a command-line utility to automate initramfs image creation with `dracut`(8)
